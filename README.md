@@ -35,14 +35,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Add amplify
 
-[Guidline - Installation](https://docs.amplify.aws/cli/start/install)
-[Guidline - Typical workflows](https://docs.amplify.aws/cli/start/workflows)
+[Guidline - Installation](https://docs.amplify.aws/cli/start/install)  
+[Guidline - Typical workflows](https://docs.amplify.aws/cli/start/workflows)  
 
 ## Add amplify authentication
 
-[Guidline - Getting started](https://docs.amplify.aws/lib/auth/getting-started/q/platform/js)
+[Guidline - Getting started](https://docs.amplify.aws/lib/auth/getting-started/q/platform/js)  
 
 ## Url
 
-[http://localhost:3000](http://localhost:3000)
-[http://localhost:3000/amplify-login](http://localhost:3000/amplify-login)
+[http://localhost:3000](http://localhost:3000)  
+[http://localhost:3000/amplify-login](http://localhost:3000/amplify-login)  
