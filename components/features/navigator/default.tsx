@@ -18,15 +18,17 @@ const DefaultNavigator: React.FunctionComponent = ({ children }: Props) => {
     minWidth: '50px',
     float: 'right',
     marginRight: '50px'
-  }
+  } as React.CSSProperties;;
+
   const menuStyle={
     backgroundColor: 'red',
     height: '200px'
-  }
+  } as React.CSSProperties;;
+
   return (
     <Fragment>
       <div style={menuStyle} >
-        <div style={authStyle}><AmplifySignOut buttonText='나가기' /></div>
+        <div style={authStyle} ><AmplifySignOut buttonText='나가기' /></div>
       </div>
       <div>
       {children}
