@@ -3,35 +3,43 @@ import React, { ReactNode, Fragment } from 'react';
 import Amplify from 'aws-amplify';
 import awsconfig from '../../../src/aws-exports';
 
+
 import { AmplifySignOut } from '@aws-amplify/ui-react';
 
 Amplify.configure(awsconfig);
 
 type Props = {
   children?: ReactNode,
-  title?: string
+  title?: string, 
+  userName?: string
 }
 
-const DefaultNavigator: React.FunctionComponent = ({ children }: Props) => {
-  const authStyle={
-    maxWidth: '100px',
+
+function DefaultNavigator({ children, userName }: Props) {
+
+  const authStyle = {
+    maxWidth: '200px',
     minWidth: '50px',
     float: 'right',
-    marginRight: '50px'
+
   } as React.CSSProperties;;
 
-  const menuStyle={
+  const menuStyle = {
     backgroundColor: 'red',
-    height: '200px'
-  } as React.CSSProperties;;
+    height: '50px',
 
+  } as React.CSSProperties;
+
+  const buttonName:string = userName + ' | 나가기';
+  // const buttonName: string = '나가기';
+  
   return (
     <Fragment>
       <div style={menuStyle} >
-        <div style={authStyle} ><AmplifySignOut buttonText='나가기' /></div>
+        <div style={authStyle} ><AmplifySignOut buttonText={buttonName} /></div>
       </div>
       <div>
-      {children}
+        {children}
       </div>
     </Fragment>
   )

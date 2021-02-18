@@ -16,5 +16,8 @@ a {
 }
 
 .sign-out {
-  width: 200px;
+  --amplify-primary-color: #000000;
+  width:100px;
+  height:100px;
+
 }

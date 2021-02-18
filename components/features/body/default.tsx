@@ -9,7 +9,7 @@ type Props = {
   title?: string
 }
 
-const DefaultBody: React.FunctionComponent = ({ children }: Props) => {
+function DefaultBody({ children }: Props) {
   const [authState, setAuthState] = React.useState<AuthState>();
   const [user, setUser] = React.useState<object | undefined>();
 
@@ -18,18 +18,28 @@ const DefaultBody: React.FunctionComponent = ({ children }: Props) => {
       setAuthState(nextAuthState);
       setUser(authData)
     });
+    
   }, []);
+
+  function getUserName( obj:any ){
+    try{
+      return obj.attributes.email?.substring(0, obj.attributes.email?.indexOf('@'));
+    }catch(e){
+      return e.message();
+    }
+  }
+
   return authState === AuthState.SignedIn && user ?
     (
       <Fragment>
-        <DefaultNavigator>
+        <DefaultNavigator userName={getUserName(user)}>
           {children}
         </DefaultNavigator>
       </Fragment>
     ) :
     (
       <Fragment>
-        <DefaultAuthenticator/>
+        <DefaultAuthenticator />
       </Fragment>
     )
 }
