@@ -1,0 +1,18 @@
+[
+  {
+    "title": "menu1",
+    "link": "/",
+    "authGroup": ["admin", "search"],
+    "submenu": {
+      "menu1-2": {
+        "title": "menu1-2",
+        "link": "/"
+      }
+    }
+  },
+  {
+    "title": "menu2",
+    "link": "/",
+    "authGroup": ["admin", "search"]
+  }
+]

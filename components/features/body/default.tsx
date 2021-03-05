@@ -32,7 +32,7 @@ function DefaultBody({ children }: Props) {
   return authState === AuthState.SignedIn && user ?
     (
       <Fragment>
-        <DefaultNavigator userName={getUserName(user)}>
+        <DefaultNavigator userName={getUserName(user)} profile={user} >
           {children}
         </DefaultNavigator>
       </Fragment>
