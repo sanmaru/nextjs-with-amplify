@@ -1,16 +1,16 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
+/*
 import menuList from '../../../config/menu.json'
 import Link from 'next/link'
-
+*/
 type Props = {
   showMenu?: boolean,
   userGroup?: Array<string>,
 }
 
 export default function hambugObject({ showMenu = false, userGroup = [] }: Props) {
-
   let li = new Array();
-  
+  console.log(userGroup)
   let liTag2 = React.createElement('li', {key:2}, '메뉴2');
   let liTag1 = React.createElement('li', {key:1}, '메뉴1');
   li.push(liTag1);
