@@ -21,17 +21,21 @@ a {
   --amplify-primary-shade: #6e6e80;
 }
 .menuList {
-  background-color: green;
+  background-color: rgb(44, 198, 44);
   height: 100%;
   width: 0px;
   transition: all 0.5s;
   position: absolute;
   top: 50px;
+  opacity: .95;
+  border-right: 1px solid #333;
+  padding-top: 30px;
 }
 
 .menuList-tooggle {
   background-color: greenred;
   width: 300px;
+  
 }
 
 #menuWrapper {
@@ -57,8 +61,8 @@ a {
   list-style: none;
 }
 .hambugDiv ul li {
-  padding: 10px 5px;
-  border-bottom: 1px solid #ddd;
+  padding: 5px 5px;
+  /* border-bottom: 2px dotted rgb(9, 116, 32); */
 }
 .hambugDiv ul li a {
   color: #333;
