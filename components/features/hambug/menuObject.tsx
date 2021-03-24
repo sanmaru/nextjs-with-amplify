@@ -46,12 +46,13 @@ export default function hambugObject({ showMenu = false, userAuthGroup = [] }: P
     });
   }
 
-  let ulTag = createUlTag(menuList, userAuthGroup);
-
   /* 햄버거 메뉴 상태에 따라 style class 를 변경하여 메뉴를 보여줄것인지 안보여줄 것인지 결정 */
   let classDiv = showMenu ?
-    (React.createElement('div', { className: 'menuList menuList-tooggle' }, ulTag))
-    : (React.createElement('div', { className: 'menuList' }));
+    /* 햄버거 메뉴를 보여줄 때 */
+    (React.createElement('div', { className: 'menuList menuList-tooggle' }, createUlTag(menuList, userAuthGroup)))
+    : 
+    /* 햄버거 메뉴를 숨길 때 */
+    (React.createElement('div', { className: 'menuList' }));
 
   return (
     <Fragment>
