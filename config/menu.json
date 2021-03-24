@@ -2,21 +2,21 @@
   {
     "title": "회원",
     "link": "/",
-    "authGroup": ["admin"],
+    "menuAuthGroup": ["admin"],
     "submenu": [{
         "title": "menu1-1",
         "link": "/index-types",
-        "authGroup": ["admin"], 
+        "menuAuthGroup": ["admin"], 
         "submenu": [{
           "title": "menu1-1-1",
           "link": "/index-types",
-          "authGroup": ["search", "admin"]
+          "menuAuthGroup": ["admin"]
       }]
     }]
   },
   {
     "title": "결제",
     "link": "/",
-    "authGroup": ["admin", "search"]
+    "menuAuthGroup": ["admin", "search"]
   }
 ]
