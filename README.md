@@ -49,4 +49,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 # 사용자 설명을 위한 이미지 테스트
 
-![](https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg)
+![리엑트로고](https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg "리액트로고")
