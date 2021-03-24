@@ -18,12 +18,12 @@ export default function hambugMenu({ userGroup = [] }: Props) {
   return !showMenu ? (
     <div >
       <HambugButton showMenu={showMenu} actionListener={eventListenner} />
-      <HambugObject showMenu={showMenu} userGroup={userGroup}/>
+      <HambugObject showMenu={showMenu} userAuthGroup={userGroup}/>
     </div>
   ) : (
       <div>
         <HambugButton showMenu={showMenu} actionListener={eventListenner} />
-        <HambugObject showMenu={showMenu} userGroup={userGroup}/>
+        <HambugObject showMenu={showMenu} userAuthGroup={userGroup}/>
       </div>
     )
 

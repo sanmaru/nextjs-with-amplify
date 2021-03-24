@@ -46,3 +46,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 [http://localhost:3000](http://localhost:3000)  
 [http://localhost:3000/amplify-login](http://localhost:3000/amplify-login)  
+
+# 사용자 설명을 위한 이미지 테스트
+
+![리엑트로고](https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg "리액트로고")

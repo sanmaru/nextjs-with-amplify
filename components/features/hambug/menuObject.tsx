@@ -5,29 +5,38 @@ import menuList from '../../../config/menu.json'
 
 type Props = {
   showMenu?: boolean,
-  userGroup?: Array<string>,
+  userAuthGroup?: Array<string>,
 }
 
-export default function hambugObject({ showMenu = false, userGroup = [] }: Props) {
+export default function hambugObject({ showMenu = false, userAuthGroup = [] }: Props) {
+  
+  /* 사용자 권한과 메뉴 권한을 비교하여 해당 메뉴를 보여줄 것인가 ? */
+  const isVisiableMenuObject = (userAuthGroup:Array<string> = [], menuAuthGroup:Array<string> = []) => {
+    let flag = false;
+    userAuthGroup.map( (currentUserAuthGroup) => {
+      menuAuthGroup.map( (currentMenuAuthGroup) => {
+        if(currentUserAuthGroup === currentMenuAuthGroup) flag  =  true;
+      });
+    });
+    return flag;
+  }
 
-  const createLiTag = (menuArray: any[], authorityGroup: any[] = [''], parentIdx:number = 0) => {
+  /* UL 태그 생성 */
+  const createUlTag = (menuArray: any[], userAuthGroup: any[] = [''], idx:number = 0) => {
+    return React.createElement('ul', { key:'menu' + idx + '-'}, createLiTag(menuArray, userAuthGroup, idx++));
+  }
 
-    return menuArray.map( (current, index) => {
+  /* LI 태그 생성 (메뉴목록) */
+  const createLiTag = (menuArray: any[], userAuthGroup: any[] = [''], parentIdx:number = 0) => {
+    return menuArray.map( (currentMenu, index) => {
       let liTag: any, aTag: any, addSubMenu: any;
-      let showFlag: boolean = false;
 
-      for (let i = 0; i < userGroup.length; i++) {
-        for (let j = 0; j < current.authGroup.length; j++) {
-          if (userGroup[i] === current.authGroup[j]) showFlag = true;
-        }
-      }
-
-      if (showFlag) {
-        aTag = React.createElement('a', { key: 'menuLink' + '-' + index, href: current.link }, current.title);
+      if (isVisiableMenuObject(userAuthGroup, currentMenu.menuAuthGroup)) {
+        aTag = React.createElement('a', { key: 'menuLink' + '-' + index, href: currentMenu.link }, currentMenu.title);
         liTag = React.createElement('li', { key: 'menu' + '-' + index }, aTag);
         
-        if( current.submenu ){
-          addSubMenu = createUlTag(current.submenu, authorityGroup, parentIdx);
+        if( currentMenu.submenu ){
+          addSubMenu = createUlTag(currentMenu.submenu, userAuthGroup, parentIdx);
           liTag = React.createElement('li', { key: 'menu' + index }, [aTag, addSubMenu]);
         }else{
           liTag = React.createElement('li', { key: 'menu' + index }, aTag);
@@ -36,13 +45,10 @@ export default function hambugObject({ showMenu = false, userGroup = [] }: Props
       return liTag;
     });
   }
-  
-  const createUlTag = (menuArray: any[], authorityGroup: any[] = [''], idx:number = 0) => {
-    return React.createElement('ul', { key:'menu' + idx + '-'}, createLiTag(menuArray, authorityGroup, idx++));
-  }
-  
-  let ulTag = createUlTag(menuList, userGroup);
 
+  let ulTag = createUlTag(menuList, userAuthGroup);
+
+  /* 햄버거 메뉴 상태에 따라 style class 를 변경하여 메뉴를 보여줄것인지 안보여줄 것인지 결정 */
   let classDiv = showMenu ?
     (React.createElement('div', { className: 'menuList menuList-tooggle' }, ulTag))
     : (React.createElement('div', { className: 'menuList' }));
